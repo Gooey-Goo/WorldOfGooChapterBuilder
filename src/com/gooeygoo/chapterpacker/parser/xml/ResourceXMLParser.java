@@ -1,5 +1,6 @@
 package com.gooeygoo.chapterpacker.parser.xml;
 
+import com.gooeygoo.chapterpacker.registries.Registries;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -21,7 +22,7 @@ public class ResourceXMLParser extends XMLParser {
                     break;
                 case "Image":
                 case "Sound":
-                    //TODO: add resources to resource registry
+                    Registries.RESOURCE_REGISTRY.add(pathPrefix+child.getAttributes().getNamedItem("path").getNodeValue());
                     break;
             }
         }

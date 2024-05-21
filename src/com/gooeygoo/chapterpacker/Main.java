@@ -1,6 +1,7 @@
 package com.gooeygoo.chapterpacker;
 
 import com.gooeygoo.chapterpacker.parser.GameFileParser;
+import com.gooeygoo.chapterpacker.registries.Registries;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -42,6 +43,10 @@ public class Main {
             for (int i=1;i<=5;i++) {
                 GameFileParser.parseIsland(i);
             }
+
+            System.out.println(Registries.TEXT_REGISTRY);
+            System.out.println(Registries.GOOBALL_REGISTRY);
+            System.out.println(Registries.RESOURCE_REGISTRY);
         }
     }
 
