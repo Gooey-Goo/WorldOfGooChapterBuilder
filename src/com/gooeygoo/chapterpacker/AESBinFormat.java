@@ -10,7 +10,7 @@ import org.bouncycastle.crypto.params.KeyParameter;
 import java.io.IOException;
 
 /**
- * Modified version of code by DavidC, linked below
+ * code by DavidC, linked below
  * http://goofans.com/developers/game-file-formats/aes-encryption-format
  */
 public class AESBinFormat

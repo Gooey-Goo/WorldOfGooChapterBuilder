@@ -1,5 +1,5 @@
 goomod/
-island?.xml.xml
+*.xml
 config.properties
 
 ### IntelliJ IDEA ###
