@@ -1,3 +1,5 @@
+package com.gooeygoo.chapterpacker.parser.xml;
+
 import org.w3c.dom.Document;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -17,7 +19,5 @@ public abstract class XMLParser {
         return doc;
     }
 
-    public static void parse(File f) {
-
-    }
+    public abstract void parse(File f);
 }

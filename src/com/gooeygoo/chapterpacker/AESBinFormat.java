@@ -1,3 +1,5 @@
+package com.gooeygoo.chapterpacker;
+
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.BufferedBlockCipher;
 import org.bouncycastle.crypto.InvalidCipherTextException;

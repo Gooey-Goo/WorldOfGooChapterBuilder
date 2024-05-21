@@ -1,3 +1,11 @@
+package com.gooeygoo.chapterpacker.parser;
+
+import com.gooeygoo.chapterpacker.AESBinFormat;
+import com.gooeygoo.chapterpacker.Main;
+import com.gooeygoo.chapterpacker.parser.xml.IslandXMLParser;
+import com.gooeygoo.chapterpacker.parser.xml.LevelXMLParser;
+import com.gooeygoo.chapterpacker.parser.xml.ResourceXMLParser;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -5,7 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-public class GameFileParsing {
+public class GameFileParser {
     public static void parseIsland(int num) throws IOException {
         //assert file exists
         File f = new File(String.format("island%d.xml.xml",num));
@@ -15,7 +23,7 @@ public class GameFileParsing {
             new File(copyPath).mkdirs();
             Files.copy(Paths.get(f.getPath()), Paths.get(copyPath), StandardCopyOption.REPLACE_EXISTING);
 
-            IslandXMLParser.parse(f);
+            new IslandXMLParser().parse(f);
         } else {
             System.out.printf("%s doesn't exist, skipping...\n",f.getName());
         }
@@ -23,7 +31,7 @@ public class GameFileParsing {
 
     public static void parseLevel(String levelname) {
         //assert file exists
-        String levelPath = String.format("%s\\res\\levels\\%s\\",Main.MOD_PATH,levelname);
+        String levelPath = String.format("%s\\res\\levels\\%s\\", Main.MOD_PATH,levelname);
         File f = new File(levelPath);
         if (new File(levelPath).exists()) {
             //copy bin files to goomod
@@ -31,8 +39,8 @@ public class GameFileParsing {
                 String outfilepath = String.format("goomod/compile/res/levels/%s/%s.%s.xml",levelname,levelname,filetype);
                 decryptAndCopy(String.format("%s%s.%s.bin",levelPath,levelname,filetype),outfilepath);
                 switch (filetype) {
-                    case "level": LevelXMLParser.parse(new File(outfilepath)); break;
-                    case "resrc": ResourceXMLParser.parse(new File(outfilepath)); break;
+                    case "level": new LevelXMLParser().parse(new File(outfilepath)); break;
+                    case "resrc": new ResourceXMLParser().parse(new File(outfilepath)); break;
                 }
             }
 

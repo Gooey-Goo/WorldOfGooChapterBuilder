@@ -1,7 +1,10 @@
+package com.gooeygoo.chapterpacker;
+
+import com.gooeygoo.chapterpacker.parser.GameFileParser;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.Properties;
 
 public class Main {
@@ -37,7 +40,7 @@ public class Main {
 
         if (validConfig) {
             for (int i=1;i<=5;i++) {
-                GameFileParsing.parseIsland(i);
+                GameFileParser.parseIsland(i);
             }
         }
     }

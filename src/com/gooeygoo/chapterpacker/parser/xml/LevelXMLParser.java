@@ -1,3 +1,5 @@
+package com.gooeygoo.chapterpacker.parser.xml;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -5,7 +7,8 @@ import org.w3c.dom.NodeList;
 import java.io.File;
 
 public class LevelXMLParser extends XMLParser {
-    public static void parse(File f) {
+    @Override
+    public void parse(File f) {
         Document doc = openFile(f);
         NodeList children = doc.getDocumentElement().getChildNodes();
         for (int i=0;i<children.getLength();i++) {
