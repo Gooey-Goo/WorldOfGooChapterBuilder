@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -32,6 +33,19 @@ public class GameFileParsing {
     }
 
     private static void decryptAndCopy(String from, String to) {
+        try {
+            byte[] in = Files.readAllBytes(Paths.get(from));
+            byte[] out = AESBinFormat.decode(in);
 
+            String pathTo = to.substring(0,to.lastIndexOf('/'));
+            new File(pathTo).mkdirs();
+            new File(to).createNewFile();
+
+            FileOutputStream fos = new FileOutputStream(to);
+            fos.write(out);
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

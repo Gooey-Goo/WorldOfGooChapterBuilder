@@ -22,15 +22,8 @@ public class AESBinFormat
 
     private static final byte EOF_MARKER = (byte) 0xFD;
 
-    public static void main(String[] args) throws IOException {
-        byte[] in = Files.readAllBytes(Paths.get("resources.xml.bin"));
-        byte[] out = decode(in);
-        FileOutputStream fos = new FileOutputStream("grum");
-        fos.write(out);
-        fos.close();
-    }
 
-    private static byte[] decode(byte[] inputBytes) throws IOException
+    public static byte[] decode(byte[] inputBytes) throws IOException
     {
         BufferedBlockCipher cipher = getCipher();
 
