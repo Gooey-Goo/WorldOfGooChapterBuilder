@@ -26,7 +26,17 @@ public class GameFileParsing {
         String levelPath = String.format("%s\\res\\levels\\%s\\",Main.MOD_PATH,levelname);
         File f = new File(levelPath);
         if (new File(levelPath).exists()) {
-            decryptAndCopy(levelPath+levelname+".scene.bin",String.format("goomod/compile/res/levels/%s/%s.scene.xml",levelname,levelname));
+            //copy bin files to goomod
+            for (String filetype : new String[]{"scene", "level", "resrc"}) {
+                String outfilepath = String.format("goomod/compile/res/levels/%s/%s.%s.xml",levelname,levelname,filetype);
+                decryptAndCopy(String.format("%s%s.%s.bin",levelPath,levelname,filetype),outfilepath);
+                switch (filetype) {
+                    case "level": LevelXMLParser.parse(new File(outfilepath)); break;
+                    case "resrc": ResourceXMLParser.parse(new File(outfilepath)); break;
+                }
+            }
+
+
         } else {
             System.out.printf("%s doesn't exist, skipping...\n",f.getName());
         }
