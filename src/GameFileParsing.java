@@ -22,11 +22,16 @@ public class GameFileParsing {
 
     public static void parseLevel(String levelname) {
         //assert file exists
-        File f = new File(String.format("%s\\res\\levels\\%s",Main.MOD_PATH,levelname));
-        if (f.exists()) {
-
+        String levelPath = String.format("%s\\res\\levels\\%s\\",Main.MOD_PATH,levelname);
+        File f = new File(levelPath);
+        if (new File(levelPath).exists()) {
+            decryptAndCopy(levelPath+levelname+".scene.bin",String.format("goomod/compile/res/levels/%s/%s.scene.xml",levelname,levelname));
         } else {
             System.out.printf("%s doesn't exist, skipping...\n",f.getName());
         }
+    }
+
+    private static void decryptAndCopy(String from, String to) {
+
     }
 }
