@@ -21,8 +21,10 @@ public class ResourceXMLParser extends XMLParser {
                     if (pathPrefix.equals("./")) pathPrefix = "";
                     break;
                 case "Image":
+                    Registries.RESOURCE_REGISTRY.add(pathPrefix+child.getAttributes().getNamedItem("path").getNodeValue()+".png");
+                    break;
                 case "Sound":
-                    Registries.RESOURCE_REGISTRY.add(pathPrefix+child.getAttributes().getNamedItem("path").getNodeValue());
+                    Registries.RESOURCE_REGISTRY.add(pathPrefix+child.getAttributes().getNamedItem("path").getNodeValue()+".ogg");
                     break;
             }
         }

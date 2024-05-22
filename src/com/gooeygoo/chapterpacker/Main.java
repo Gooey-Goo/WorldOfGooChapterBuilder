@@ -40,12 +40,14 @@ public class Main {
         }
 
         if (validConfig) {
+            GameFileParser.parseLevel("MapWorldView");
             for (int i=1;i<=5;i++) {
                 GameFileParser.parseIsland(i);
             }
 
             Registries.TEXT_REGISTRY.register();
             Registries.GOOBALL_REGISTRY.register();
+            Registries.RESOURCE_REGISTRY.register();
         }
     }
 
