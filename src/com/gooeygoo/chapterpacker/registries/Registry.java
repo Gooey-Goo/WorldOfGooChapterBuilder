@@ -4,10 +4,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 public abstract class Registry {
-    private Set<String> items;
+    protected final Set<String> items;
 
     public Registry() {
-        items = new HashSet<String>();
+        items = new HashSet<>();
     }
 
     public void add(String item) {

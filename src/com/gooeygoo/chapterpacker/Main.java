@@ -44,9 +44,7 @@ public class Main {
                 GameFileParser.parseIsland(i);
             }
 
-            System.out.println(Registries.TEXT_REGISTRY);
-            System.out.println(Registries.GOOBALL_REGISTRY);
-            System.out.println(Registries.RESOURCE_REGISTRY);
+            Registries.TEXT_REGISTRY.register();
         }
     }
 

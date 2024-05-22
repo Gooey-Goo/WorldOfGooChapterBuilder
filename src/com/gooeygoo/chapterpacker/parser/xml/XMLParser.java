@@ -12,7 +12,6 @@ public abstract class XMLParser {
         try {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             doc = builder.parse(f);
-            doc.getDocumentElement().normalize();
         } catch (Exception e) {
             e.printStackTrace();
         }
