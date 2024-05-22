@@ -45,6 +45,7 @@ public class Main {
             }
 
             Registries.TEXT_REGISTRY.register();
+            Registries.GOOBALL_REGISTRY.register();
         }
     }
 

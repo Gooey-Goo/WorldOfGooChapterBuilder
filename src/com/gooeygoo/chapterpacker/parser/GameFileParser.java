@@ -50,7 +50,7 @@ public class GameFileParser {
         }
     }
 
-    private static void decryptAndCopy(String from, String to) {
+    public static void decryptAndCopy(String from, String to) {
         try {
             byte[] in = Files.readAllBytes(Paths.get(from));
             byte[] out = AESBinFormat.decode(in);
@@ -65,5 +65,9 @@ public class GameFileParser {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static boolean isOirginal(String path) {
+        return Files.exists(Paths.get(Main.VANILLA_PATH+"/"+path));
     }
 }
